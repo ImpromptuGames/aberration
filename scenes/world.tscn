@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0mc3ba54q333"]
+[gd_scene load_steps=11 format=3 uid="uid://b0mc3ba54q333"]
 
 [ext_resource type="PackedScene" uid="uid://chkrpgo484wns" path="res://player/player.tscn" id="1_3j4od"]
 [ext_resource type="Texture2D" uid="uid://b4vdempplc1uw" path="res://textures/night.png" id="1_l6fbb"]
 [ext_resource type="PackedScene" uid="uid://qy638o001f01" path="res://scenes/proto_block.tscn" id="2_bkgws"]
+[ext_resource type="PackedScene" uid="uid://bt8tl3vaobbfr" path="res://slime/slime.tscn" id="4_akmsk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_037vu"]
 panorama = ExtResource("1_l6fbb")
@@ -57,3 +58,6 @@ transform = Transform3D(0.620847, 0, 0.783932, 0, 1, 0, -0.783932, 0, 0.620847, 
 
 [node name="ProtoBlock2" parent="." instance=ExtResource("2_bkgws")]
 transform = Transform3D(0.577772, 0, 0.816198, 0, 1, 0, -0.816198, 0, 0.577772, 11.2953, 7.18638, 9.50535)
+
+[node name="slime" parent="." instance=ExtResource("4_akmsk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.76179, 0)
