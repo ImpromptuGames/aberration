@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://qy638o001f01"]
+
+[ext_resource type="Texture2D" uid="uid://bkslbsj87qi3g" path="res://kenney/prototype/Dark/texture_07.png" id="1_dxop2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mk8p1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5yyp"]
+albedo_texture = ExtResource("1_dxop2")
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_47u76"]
+material = SubResource("StandardMaterial3D_m5yyp")
+
+[node name="ProtoBlock" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_mk8p1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_47u76")

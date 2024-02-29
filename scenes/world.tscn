@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0mc3ba54q333"]
+
+[ext_resource type="PackedScene" uid="uid://chkrpgo484wns" path="res://player/player.tscn" id="1_3j4od"]
+[ext_resource type="Texture2D" uid="uid://b4vdempplc1uw" path="res://textures/night.png" id="1_l6fbb"]
+[ext_resource type="PackedScene" uid="uid://qy638o001f01" path="res://scenes/proto_block.tscn" id="2_bkgws"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_037vu"]
+panorama = ExtResource("1_l6fbb")
+filter = false
+
+[sub_resource type="Sky" id="Sky_3u5bl"]
+sky_material = SubResource("PanoramaSkyMaterial_037vu")
+
+[sub_resource type="Environment" id="Environment_vjvbe"]
+background_mode = 2
+sky = SubResource("Sky_3u5bl")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.364706, 0.411765, 0.364706, 1)
+volumetric_fog_detail_spread = 1.51572
+volumetric_fog_ambient_inject = 1.59
+volumetric_fog_sky_affect = 0.617
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dv84p"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2mx2"]
+albedo_color = Color(0.215686, 0.121569, 0.0117647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uymqs"]
+material = SubResource("StandardMaterial3D_c2mx2")
+size = Vector3(50, 1, 50)
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vjvbe")
+
+[node name="Player" parent="." instance=ExtResource("1_3j4od")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56161, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_dv84p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_uymqs")
+
+[node name="ProtoBlock" parent="." instance=ExtResource("2_bkgws")]
+transform = Transform3D(0.620847, 0, 0.783932, 0, 1, 0, -0.783932, 0, 0.620847, -17.2512, 0, -12.1659)
+
+[node name="ProtoBlock2" parent="." instance=ExtResource("2_bkgws")]
+transform = Transform3D(0.577772, 0, 0.816198, 0, 1, 0, -0.816198, 0, 0.577772, 11.2953, 7.18638, 9.50535)
