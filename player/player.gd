@@ -8,6 +8,8 @@ extends CharacterBody3D
 @export_category("Player Movement")
 @export var speed: float = 500
 @export var jump_velocity: float = 4.5
+
+@export_category("Player Mechanics")
 @export var potion_scale: float = 1
 
 var velocity_y: float = 0
