@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hl34edbo4lc"]
+
+[ext_resource type="PackedScene" uid="uid://lxxlnd7ncbr5" path="res://models/rocks.blend" id="1_b3vp7"]
+
+[node name="rocks" instance=ExtResource("1_b3vp7")]

@@ -16,7 +16,7 @@ var velocity_y: float = 0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_sensitivity: float = ProjectSettings.get_setting("player/look_sensitivity")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	scale = Vector3(potion_scale,potion_scale,potion_scale)
 
 func _physics_process(delta: float) -> void:

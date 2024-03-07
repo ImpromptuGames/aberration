@@ -21,7 +21,6 @@ sky = SubResource("Sky_6kcyw")
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.1
 volumetric_fog_albedo = Color(0.282353, 0.309804, 0.27451, 1)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4i2ii"]
@@ -85,40 +84,14 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Slime" parent="." instance=ExtResource("4_jjw44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8879, 0.924189, 39.3911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8879, 0.989246, 39.3911)
 
 [node name="end of path" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3261, 0, -9.43281)
-
-[node name="I love you" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67969, 0, 20.4523)
 
 [node name="start of path" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4958, 0, 35.1022)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="DialogAnchor" type="Node2D" parent="CanvasLayer/MarginContainer"]
-unique_name_in_owner = true
-position = Vector2(25, 119)
-
-[node name="StageLabel" type="Label" parent="CanvasLayer"]
-offset_left = 3.0
-offset_top = 5.0
-offset_right = 303.0
-offset_bottom = 28.0
 
 [connection signal="target_reached" from="Slime" to="." method="_on_slime_target_reached"]
