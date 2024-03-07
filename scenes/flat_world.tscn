@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdstba266p48b"]
+[gd_scene load_steps=14 format=3 uid="uid://bdstba266p48b"]
 
 [ext_resource type="Script" path="res://scenes/flat_world.gd" id="1_p3qbx"]
 [ext_resource type="PackedScene" uid="uid://chkrpgo484wns" path="res://player/player.tscn" id="1_v1bb4"]
 [ext_resource type="MeshLibrary" uid="uid://b5ck6qjcf5710" path="res://other-assets/tree-mesh-lib.tres" id="2_aj6lx"]
 [ext_resource type="MeshLibrary" uid="uid://c4biknwtwwt4g" path="res://other-assets/rock-mesh-lib.tres" id="3_calkc"]
+[ext_resource type="Texture2D" uid="uid://d1smvxm47khur" path="res://textures/grass-ground.png" id="3_i7oj0"]
 [ext_resource type="PackedScene" uid="uid://bt8tl3vaobbfr" path="res://slime/slime.tscn" id="4_jjw44"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2odbo"]
@@ -35,7 +36,8 @@ agent_max_slope = 30.0
 size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k34l"]
-albedo_color = Color(0.14902, 0.231373, 0.113725, 1)
+albedo_texture = ExtResource("3_i7oj0")
+uv1_scale = Vector3(200, 200, 200)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8j2oj"]
 material = SubResource("StandardMaterial3D_1k34l")

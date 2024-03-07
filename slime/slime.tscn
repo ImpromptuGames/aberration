@@ -42,6 +42,21 @@ shadow_mesh = SubResource("ArrayMesh_t8c5w")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4wyx0"]
 points = PackedVector3Array(-0.0610317, 0.167975, 0.977272, -0.122273, 0.0454443, -0.978949, -0.181644, -0.134052, -0.939157, 0.94788, -0.107425, -0.183331, 0.060285, 0.983907, -0.090333, -0.910716, -0.195652, 0.0909194, -0.813063, 0.56092, -0.060192, 0.181629, -0.405975, 0.453882, 0.696135, 0.259828, 0.665794, 0.692818, 0.530861, -0.48201, -0.358609, 0.678528, 0.627706, -0.540879, 0.470251, -0.691354, 0.301752, -0.313412, -0.724318, -0.667374, -0.104338, 0.697787, 0.448934, 0.708992, 0.538758, -0.664853, -0.284139, -0.513741, 0.515647, -0.225615, 0.72814, 0.301061, 0.440581, -0.843009, 0.752079, 0.651135, 0.0299701, 0.548289, 0.0160246, -0.822338, -0.822328, 0.016028, -0.548283, -0.242182, -0.345529, 0.696201, -0.484086, -0.40606, -0.0906357, 0.605297, -0.375721, -0.211816, -0.844831, 0.290086, 0.452568, -0.150506, 0.891968, -0.421341, -0.238987, 0.947177, 0.1791, 0.948061, 0.045502, 0.305802, 0.78786, -0.285743, 0.272684, 0.360587, 0.890986, -0.270393, -0.947614, 0.290086, -0.152829, 0.23972, 0.64966, 0.71916)
 
+[sub_resource type="Animation" id="Animation_248ng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icosphere:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.223529, 0.682353, 0.380392, 0.643137)]
+}
+
 [sub_resource type="Animation" id="Animation_mm1fg"]
 resource_name = "turn_evil"
 length = 10.0
@@ -56,21 +71,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.223529, 0.682353, 0.380392, 0.643137), Color(0.647059, 0.101961, 0.121569, 0.776471)]
-}
-
-[sub_resource type="Animation" id="Animation_248ng"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icosphere:mesh:surface_0/material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.223529, 0.682353, 0.380392, 0.643137)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5085y"]
