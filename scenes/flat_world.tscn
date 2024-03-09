@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdstba266p48b"]
+[gd_scene load_steps=20 format=3 uid="uid://bdstba266p48b"]
 
 [ext_resource type="Script" path="res://scenes/flat_world.gd" id="1_p3qbx"]
 [ext_resource type="PackedScene" uid="uid://chkrpgo484wns" path="res://player/player.tscn" id="1_v1bb4"]
@@ -6,6 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://c4biknwtwwt4g" path="res://other-assets/rock-mesh-lib.tres" id="3_calkc"]
 [ext_resource type="Texture2D" uid="uid://d1smvxm47khur" path="res://textures/grass-ground.png" id="3_i7oj0"]
 [ext_resource type="PackedScene" uid="uid://bt8tl3vaobbfr" path="res://slime/slime.tscn" id="4_jjw44"]
+[ext_resource type="MeshLibrary" uid="uid://c24moe7pg3ad" path="res://other-assets/foliage-mesh-lib.tres" id="6_fs1xj"]
 [ext_resource type="AudioStream" uid="uid://c641jr0chiv7x" path="res://other-assets/happy.wav" id="7_sl3rh"]
 [ext_resource type="AudioStream" uid="uid://c48cak0qo21ol" path="res://other-assets/spooky.wav" id="8_bke3n"]
 
@@ -23,7 +24,6 @@ background_mode = 2
 sky = SubResource("Sky_6kcyw")
 tonemap_mode = 2
 glow_enabled = true
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.1
 volumetric_fog_albedo = Color(0.282353, 0.309804, 0.27451, 1)
 
@@ -192,5 +192,13 @@ autoplay = true
 [node name="Spooky" type="AudioStreamPlayer" parent="MUSIC"]
 stream = ExtResource("8_bke3n")
 autoplay = true
+
+[node name="Foliage" type="GridMap" parent="."]
+mesh_library = ExtResource("6_fs1xj")
+cell_size = Vector3(0.5, 0.5, 0.5)
+data = {
+"cells": PackedInt32Array(196534, 82, 1507329, 196531, 69, 1507328, 196536, 68, 1507328, 196546, 69, 1507328, 196557, 74, 1507328, 196560, 72, 1507328, 196569, 66, 1507328, 196571, 64, 1507328, 196575, 58, 1507328, 196577, 55, 1507328, 196579, 57, 1507328, 196587, 56, 1507328, 196590, 57, 1507328, 196594, 57, 1507328, 196600, 56, 1507328, 196602, 57, 1507328, 196603, 57, 1507328, 196606, 56, 1507328, 196607, 56, 1507328, 131074, 56, 1507328, 196607, 54, 1507328, 196564, 47, 1507328, 196564, 43, 1507328, 196564, 42, 1507328, 196564, 41, 1507328, 196564, 38, 1507328, 196564, 37, 1507328, 196564, 36, 1507328, 196565, 34, 1507328, 196565, 33, 1507328, 196566, 32, 1507328, 196567, 32, 1507328, 196571, 31, 1507328, 196572, 31, 1507328, 196574, 32, 1507328, 196574, 33, 1507328, 196575, 33, 1507328, 196576, 36, 1507328, 196576, 37, 1507328, 196577, 39, 1507328, 196578, 39, 1507328, 196578, 40, 1507328, 196579, 41, 1507328, 196581, 41, 1507328, 196581, 42, 1507328, 196582, 42, 1507328, 196583, 42, 1507328, 196584, 42, 1507328, 196587, 43, 1507328, 196588, 43, 1507328, 196591, 45, 1507329, 196590, 45, 1507329, 196579, 44, 1507329, 196578, 44, 1507329, 196577, 44, 1507329, 196577, 45, 1507329, 196576, 45, 1507329, 196575, 48, 1507329, 196575, 49, 1507329, 196574, 49, 1507329, 196574, 50, 1507329, 196574, 51, 1507329, 196574, 52, 1507329, 196568, 57, 1507329, 196568, 58, 1507329, 196568, 59, 1507329, 196567, 59, 1507329, 196563, 62, 1507329, 196562, 63, 1507329, 196561, 63, 1507329, 196561, 64, 1507329, 196560, 64, 1507329, 196559, 65, 1507329, 196557, 66, 1507329, 196598, 45, 1507329, 196599, 44, 1507329, 196605, 42, 1507329, 196605, 41, 1507329, 196605, 40, 1507329, 196605, 39, 1507329, 196604, 36, 1507329)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [connection signal="target_reached" from="Slime" to="." method="_on_slime_target_reached"]

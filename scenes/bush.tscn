@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4hbnx1csyx0e"]
+
+[ext_resource type="Texture2D" uid="uid://f1f0b41nac0x" path="res://kenney/foliage/PNG/Flat/sprite_0039.png" id="1_motma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofabd"]
+resource_name = "foliage"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.055093, 0.340684, 0.0405115, 1)
+albedo_texture = ExtResource("1_motma")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fbx35"]
+_surfaces = [{
+"aabb": AABB(-1, -0.866026, -1, 2, 1.73205, 2.00001),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"name": "foliage",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 255, 127, 254, 255, 0, 0, 255, 255, 255, 127, 254, 255, 0, 0, 0, 0, 255, 127, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 0, 0, 255, 191, 255, 255, 254, 255, 0, 0, 255, 63, 0, 0, 254, 255, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 0, 0, 255, 63, 255, 255, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 63, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o23on"]
+resource_name = "bush_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -0.866026, -1, 2, 1.73205, 2.00001),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"material": SubResource("StandardMaterial3D_ofabd"),
+"name": "foliage",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 255, 127, 254, 255, 255, 191, 255, 255, 255, 127, 254, 255, 255, 191, 0, 0, 255, 127, 0, 0, 255, 191, 255, 255, 255, 127, 0, 0, 255, 191, 255, 191, 255, 255, 254, 255, 140, 226, 255, 63, 0, 0, 254, 255, 140, 226, 255, 191, 255, 255, 0, 0, 140, 226, 255, 63, 0, 0, 0, 0, 140, 226, 255, 191, 0, 0, 254, 255, 140, 226, 255, 63, 255, 255, 254, 255, 140, 226, 255, 191, 0, 0, 0, 0, 140, 226, 255, 63, 255, 255, 0, 0, 140, 226, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 171, 156, 85, 78, 171, 156, 85, 78, 171, 156, 85, 78, 171, 156, 85, 78, 85, 206, 82, 227, 85, 206, 82, 227, 85, 206, 82, 227, 85, 206, 82, 227)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fbx35")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wyrqs"]
+height = 1.82476
+radius = 0.734066
+
+[node name="bush" type="StaticBody3D"]
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_o23on")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_wyrqs")
