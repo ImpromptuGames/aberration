@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://djxdbttw8pedf"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/main_menu.gd" id="1_4r0vh"]
+[ext_resource type="Texture2D" uid="uid://dgk260dipgast" path="res://textures/main-menu.png" id="2_1fucb"]
+[ext_resource type="Theme" uid="uid://b65h4n0vopjs0" path="res://scenes/ui/main_theme.tres" id="2_ilq1h"]
+[ext_resource type="FontFile" uid="uid://br7qkil0f1aej" path="res://kenney/Kenney Pixel.ttf" id="2_pn25t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1c83"]
+font = ExtResource("2_pn25t")
+font_size = 50
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4r0vh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1fucb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -47.5
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "a secret hike."
+label_settings = SubResource("LabelSettings_y1c83")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ilq1h")
+text = "begin."
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ilq1h")
+text = "leave."
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

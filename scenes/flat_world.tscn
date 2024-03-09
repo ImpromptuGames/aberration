@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdstba266p48b"]
+[gd_scene load_steps=19 format=3 uid="uid://bdstba266p48b"]
 
 [ext_resource type="Script" path="res://scenes/flat_world.gd" id="1_p3qbx"]
 [ext_resource type="PackedScene" uid="uid://chkrpgo484wns" path="res://player/player.tscn" id="1_v1bb4"]
@@ -6,6 +6,8 @@
 [ext_resource type="MeshLibrary" uid="uid://c4biknwtwwt4g" path="res://other-assets/rock-mesh-lib.tres" id="3_calkc"]
 [ext_resource type="Texture2D" uid="uid://d1smvxm47khur" path="res://textures/grass-ground.png" id="3_i7oj0"]
 [ext_resource type="PackedScene" uid="uid://bt8tl3vaobbfr" path="res://slime/slime.tscn" id="4_jjw44"]
+[ext_resource type="AudioStream" uid="uid://c641jr0chiv7x" path="res://other-assets/happy.wav" id="7_sl3rh"]
+[ext_resource type="AudioStream" uid="uid://c48cak0qo21ol" path="res://other-assets/spooky.wav" id="8_bke3n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2odbo"]
 sky_top_color = Color(0.25098, 0.443137, 0.74902, 1)
@@ -42,6 +44,67 @@ uv1_scale = Vector3(200, 200, 200)
 [sub_resource type="BoxMesh" id="BoxMesh_8j2oj"]
 material = SubResource("StandardMaterial3D_1k34l")
 size = Vector3(100, 1, 100)
+
+[sub_resource type="Animation" id="Animation_60mb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happy:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spooky:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vk2k3"]
+resource_name = "happy_to_spooky"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happy:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spooky:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epauk"]
+_data = {
+"RESET": SubResource("Animation_60mb5"),
+"happy_to_spooky": SubResource("Animation_vk2k3")
+}
 
 [node name="FlatWorld" type="Node3D"]
 script = ExtResource("1_p3qbx")
@@ -100,27 +163,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4958, 0, 35.1022)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="DialogAnchor" type="Node2D" parent="CanvasLayer/MarginContainer"]
-unique_name_in_owner = true
-position = Vector2(25, 119)
-
 [node name="StageLabel" type="Label" parent="CanvasLayer"]
 offset_left = 3.0
 offset_top = 5.0
 offset_right = 303.0
 offset_bottom = 28.0
+
+[node name="DialogAnchor" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 29.0
+offset_top = 142.0
+offset_right = 29.0
+offset_bottom = 142.0
+
+[node name="MUSIC" type="Node" parent="."]
+
+[node name="music_animation" type="AnimationPlayer" parent="MUSIC"]
+libraries = {
+"": SubResource("AnimationLibrary_epauk")
+}
+
+[node name="Happy" type="AudioStreamPlayer" parent="MUSIC"]
+stream = ExtResource("7_sl3rh")
+autoplay = true
+
+[node name="Spooky" type="AudioStreamPlayer" parent="MUSIC"]
+stream = ExtResource("8_bke3n")
+autoplay = true
 
 [connection signal="target_reached" from="Slime" to="." method="_on_slime_target_reached"]

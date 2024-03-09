@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b65h4n0vopjs0"]
+
+[ext_resource type="FontFile" uid="uid://br7qkil0f1aej" path="res://kenney/Kenney Pixel.ttf" id="1_eynea"]
+[ext_resource type="StyleBox" uid="uid://c4k01c2j8sf1d" path="res://scenes/ui/basic_style_box.tres" id="2_2nu4b"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 28
+Button/fonts/font = ExtResource("1_eynea")
+Button/styles/disabled = ExtResource("2_2nu4b")
+Button/styles/focus = ExtResource("2_2nu4b")
+Button/styles/hover = ExtResource("2_2nu4b")
+Button/styles/normal = ExtResource("2_2nu4b")
+Button/styles/pressed = ExtResource("2_2nu4b")
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_eynea")
+Panel/styles/panel = ExtResource("2_2nu4b")

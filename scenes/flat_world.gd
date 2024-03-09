@@ -4,8 +4,15 @@ extends Node3D
 @onready var end_of_path: Vector3 = $"end of path".position
 @onready var start_of_path: Vector3 = $"start of path".position
 @onready var i_love_you: Vector3 = $"I love you".position
-@onready var dialog_anchor: Node2D = %DialogAnchor
+@onready var dialog_anchor: Control = %DialogAnchor
 @onready var stage_label: Label = $CanvasLayer/StageLabel
+@onready var music_animation: AnimationPlayer = $MUSIC/music_animation
+@onready var happy: AudioStreamPlayer = $MUSIC/Happy
+@onready var spooky: AudioStreamPlayer = $MUSIC/Spooky
+
+@onready var good_slime: AudioStream = preload("res://other-assets/slime_good.wav")
+@onready var spooky_roar: AudioStream = preload("res://other-assets/spooky_roar.wav")
+@onready var spooky_speak: AudioStream = preload("res://other-assets/spooky_blip.wav")
 
 const MAX_STAGE = 3
 
@@ -40,6 +47,8 @@ var stage: int = 0
 
 func _ready() -> void:
 	stage_change(0)
+	happy.playing = true
+	spooky.playing = false
 
 func _process(_delta: float) -> void:
 	stage_label.text = "Stage: %s" % stage
@@ -48,7 +57,7 @@ func _process(_delta: float) -> void:
 			if slime.position.distance_to(player.position) >= 15:
 				slime.get_player_attention(player.position)
 				stage -= 1
-				DialogManager.start_dialog(dialog_anchor, lines_catch_up)
+				DialogManager.start_dialog(dialog_anchor, lines_catch_up, good_slime)
 		3:
 			slime.set_next_nav_target(player.position)
 			if player.position.distance_to(slime.position) <= 1:
@@ -78,12 +87,15 @@ func _on_slime_target_reached() -> void:
 	DialogManager.dialog_finished.connect(_handle_dialog_finished)
 	match stage:
 		0:
-			DialogManager.start_dialog(dialog_anchor, lines_1)
+			DialogManager.start_dialog(dialog_anchor, lines_1, good_slime)
 		1:
-			DialogManager.start_dialog(dialog_anchor, lines_2)
+			DialogManager.start_dialog(dialog_anchor, lines_2, good_slime)
 		2:
-			DialogManager.start_dialog(dialog_anchor, lines_3)
+			DialogManager.start_dialog(dialog_anchor, lines_3, spooky_speak)
 			slime.turn_evil()
+			spooky.playing = true
+			music_animation.play("happy_to_spooky")
+			
 		3:
 			pass
 			

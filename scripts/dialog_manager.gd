@@ -4,7 +4,7 @@ extends Node
 
 signal dialog_finished()
 
-var dialog_anchor: Node2D
+var dialog_anchor: Control
 
 var dialog_lines: Array[String] = []
 var current_line_index: int = 0
@@ -12,15 +12,19 @@ var current_line_index: int = 0
 var text_box: TextBox
 var text_box_position: Vector2
 
+
+var sfx: AudioStream
+
 var is_dialog_active: bool = false
 var can_advance_line: bool = false
 
-func start_dialog(anchor: Node2D, lines: Array[String]) -> void:
+func start_dialog(anchor: Control, lines: Array[String], speech_sfx: AudioStream) -> void:
 	if is_dialog_active:
 		return
 	dialog_lines = lines
 	dialog_anchor = anchor
 	text_box_position = dialog_anchor.position
+	sfx = speech_sfx
 	_show_text_box()
 	
 	is_dialog_active = true
@@ -31,7 +35,7 @@ func _show_text_box() -> void:
 	dialog_anchor.add_child(text_box)
 	text_box.global_position.x = text_box_position.x - text_box.size.x / 2
 	text_box.global_position.y = text_box_position.y - text_box.size.y / 2
-	text_box.display_text(dialog_lines[current_line_index])
+	text_box.display_text(dialog_lines[current_line_index], sfx)
 	can_advance_line = false
 
 func _on_text_box_finished_displaying() -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgtgrl0k77dp6"]
+[gd_scene load_steps=4 format=3 uid="uid://bgtgrl0k77dp6"]
 
 [ext_resource type="Texture2D" uid="uid://cjp82bst1n226" path="res://textures/text_box_texture.png" id="1_0mhku"]
 [ext_resource type="Script" path="res://scenes/ui/text_box.gd" id="1_p3hut"]
+[ext_resource type="Theme" uid="uid://b65h4n0vopjs0" path="res://scenes/ui/main_theme.tres" id="3_f1ngx"]
 
 [node name="MarginContainer" type="MarginContainer"]
 offset_right = 40.0
@@ -12,24 +13,29 @@ script = ExtResource("1_p3hut")
 layout_mode = 2
 texture = ExtResource("1_0mhku")
 region_rect = Rect2(0, 0, 48, 48)
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
+theme = ExtResource("3_f1ngx")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test"
 vertical_alignment = 1
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.859
 
 [connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
