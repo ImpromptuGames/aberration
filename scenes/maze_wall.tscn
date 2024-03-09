@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqcjj8eviapv5"]
+
+[ext_resource type="PackedScene" uid="uid://bmbv0hb80yyb4" path="res://models/maze-wall.glb" id="1_vkq1y"]
+
+[node name="maze-wall" instance=ExtResource("1_vkq1y")]
