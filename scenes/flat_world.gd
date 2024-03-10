@@ -1,9 +1,9 @@
 extends Node3D
 @onready var slime: Slime = $Slime
 @onready var player: Player = $Player
-@onready var end_of_path: Vector3 = $"end of path".position
-@onready var start_of_path: Vector3 = $"start of path".position
-@onready var i_love_you: Vector3 = $"I love you".position
+@onready var end_of_path: Vector3 = $"waypoints/end of path".position
+@onready var start_of_path: Vector3 = $"waypoints/start of path".position
+@onready var i_love_you: Vector3 = $"waypoints/I love you".position
 @onready var dialog_anchor: Control = %DialogAnchor
 @onready var stage_label: Label = $CanvasLayer/StageLabel
 @onready var music_animation: AnimationPlayer = $MUSIC/music_animation

@@ -3,3 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://h2qdfh2pswcs" path="res://models/trees.blend" id="1_mfyt6"]
 
 [node name="trees" instance=ExtResource("1_mfyt6")]
+
+[node name="tree" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="treeCrooked" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="treeHighCrooked" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="treeHighRound" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
