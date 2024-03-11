@@ -1,0 +1,46 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwfjjlrplsyd6"]
+
+[ext_resource type="PackedScene" uid="uid://bilrhdva4et4y" path="res://scenes/town_parts/cart_2.tscn" id="1_3i75w"]
+[ext_resource type="PackedScene" uid="uid://bjqe1qmxenb1h" path="res://scenes/town_parts/fence_2.tscn" id="2_i3ywr"]
+[ext_resource type="PackedScene" uid="uid://dnbuau3wcw4u8" path="res://scenes/town_parts/fence_gate_2.tscn" id="3_4mi3u"]
+[ext_resource type="PackedScene" uid="uid://cw6cj3c6bwy5l" path="res://scenes/town_parts/fountain_round_detail_2.tscn" id="4_xp4ok"]
+[ext_resource type="PackedScene" uid="uid://dgicnlh0wdhx" path="res://scenes/town_parts/roof_high_2.tscn" id="5_wefje"]
+[ext_resource type="PackedScene" uid="uid://crxl5i04peadj" path="res://scenes/town_parts/roof_high_corner_2.tscn" id="6_bp3xb"]
+[ext_resource type="PackedScene" uid="uid://b0c3q4eh0jdmu" path="res://scenes/town_parts/roof_high_corner_inner_2.tscn" id="7_5t2uj"]
+[ext_resource type="PackedScene" uid="uid://df6cx2j2kdogv" path="res://scenes/town_parts/roof_high_corner_round_2.tscn" id="8_xhkhm"]
+[ext_resource type="PackedScene" uid="uid://bkcy3si1k74p5" path="res://scenes/town_parts/wall_2.tscn" id="9_gawql"]
+[ext_resource type="PackedScene" uid="uid://dnwsjwkcq4rea" path="res://scenes/town_parts/wall_corner_2.tscn" id="10_wb58x"]
+[ext_resource type="PackedScene" uid="uid://cbu5qbq47qwwn" path="res://scenes/town_parts/wall_detail_diagonal_2.tscn" id="11_o2phn"]
+[ext_resource type="PackedScene" uid="uid://mrnb4rrwavvo" path="res://scenes/town_parts/wall_detail_horizontal_2.tscn" id="12_lu72l"]
+[ext_resource type="PackedScene" uid="uid://b3vsoh0l5pkj" path="res://scenes/town_parts/wall_door_2.tscn" id="13_311su"]
+[ext_resource type="PackedScene" uid="uid://bjqgt6budcb16" path="res://scenes/town_parts/wall_window_glass_2.tscn" id="14_at7yh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="cart2" parent="." instance=ExtResource("1_3i75w")]
+
+[node name="fence2" parent="." instance=ExtResource("2_i3ywr")]
+
+[node name="fenceGate2" parent="." instance=ExtResource("3_4mi3u")]
+
+[node name="fountainRoundDetail2" parent="." instance=ExtResource("4_xp4ok")]
+
+[node name="roofHigh2" parent="." instance=ExtResource("5_wefje")]
+
+[node name="roofHighCorner2" parent="." instance=ExtResource("6_bp3xb")]
+
+[node name="roofHighCornerInner2" parent="." instance=ExtResource("7_5t2uj")]
+
+[node name="roofHighCornerRound2" parent="." instance=ExtResource("8_xhkhm")]
+
+[node name="wall2" parent="." instance=ExtResource("9_gawql")]
+
+[node name="wallCorner2" parent="." instance=ExtResource("10_wb58x")]
+
+[node name="wallDetailDiagonal2" parent="." instance=ExtResource("11_o2phn")]
+
+[node name="wallDetailHorizontal2" parent="." instance=ExtResource("12_lu72l")]
+
+[node name="wallDoor2" parent="." instance=ExtResource("13_311su")]
+
+[node name="wallWindowGlass2" parent="." instance=ExtResource("14_at7yh")]

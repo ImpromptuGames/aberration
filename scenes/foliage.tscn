@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bba6jcxlhh2q5"]
+
+[ext_resource type="PackedScene" uid="uid://c4hbnx1csyx0e" path="res://scenes/bush.tscn" id="1_nfp6p"]
+[ext_resource type="PackedScene" uid="uid://boluqkcfua1wr" path="res://scenes/grass_tuft.tscn" id="2_jif6t"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bush" parent="." instance=ExtResource("1_nfp6p")]
+
+[node name="grass_tuft" parent="." instance=ExtResource("2_jif6t")]

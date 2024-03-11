@@ -11,6 +11,7 @@ cull_mode = 2
 albedo_color = Color(0.235695, 0.352658, 0.130837, 1)
 albedo_texture = ExtResource("1_yuwth")
 roughness = 0.5
+texture_filter = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3erej"]
 _surfaces = [{

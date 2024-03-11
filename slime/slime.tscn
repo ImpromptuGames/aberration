@@ -81,6 +81,7 @@ _data = {
 }
 
 [node name="slime" type="CharacterBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_h3u0o")
 
 [node name="Icosphere" type="MeshInstance3D" parent="."]

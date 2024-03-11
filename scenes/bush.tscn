@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4hbnx1csyx0e"]
 
-[ext_resource type="Texture2D" uid="uid://f1f0b41nac0x" path="res://kenney/foliage/PNG/Flat/sprite_0039.png" id="1_motma"]
+[ext_resource type="Texture2D" uid="uid://dpj8p8wfj1pp3" path="res://textures/bush.png" id="1_q1234"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofabd"]
 resource_name = "foliage"
@@ -9,7 +9,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_color = Color(0.055093, 0.340684, 0.0405115, 1)
-albedo_texture = ExtResource("1_motma")
+albedo_texture = ExtResource("1_q1234")
+texture_filter = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fbx35"]
 _surfaces = [{

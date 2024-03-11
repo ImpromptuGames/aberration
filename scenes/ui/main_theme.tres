@@ -1,7 +1,58 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b65h4n0vopjs0"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b65h4n0vopjs0"]
 
 [ext_resource type="FontFile" uid="uid://br7qkil0f1aej" path="res://kenney/Kenney Pixel.ttf" id="1_eynea"]
 [ext_resource type="StyleBox" uid="uid://c4k01c2j8sf1d" path="res://scenes/ui/basic_style_box.tres" id="2_2nu4b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_np2bl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.219608, 0.529412, 0.423529, 0.501961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtm0o"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.14902, 0.388235, 0.305882, 0.501961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6ght"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.580392, 0.356863, 0.407843, 0.501961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -23,10 +74,10 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 28
 Button/fonts/font = ExtResource("1_eynea")
 Button/styles/disabled = ExtResource("2_2nu4b")
-Button/styles/focus = ExtResource("2_2nu4b")
-Button/styles/hover = ExtResource("2_2nu4b")
+Button/styles/focus = SubResource("StyleBoxFlat_np2bl")
+Button/styles/hover = SubResource("StyleBoxFlat_dtm0o")
 Button/styles/normal = ExtResource("2_2nu4b")
-Button/styles/pressed = ExtResource("2_2nu4b")
+Button/styles/pressed = SubResource("StyleBoxFlat_e6ght")
 Label/font_sizes/font_size = 28
 Label/fonts/font = ExtResource("1_eynea")
 Panel/styles/panel = ExtResource("2_2nu4b")
