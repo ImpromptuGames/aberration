@@ -41,14 +41,13 @@ func _show_text_box() -> void:
 func _on_text_box_finished_displaying() -> void:
 	can_advance_line = true
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if (
 		event.is_action_pressed("advance_dialog") &&
 		is_dialog_active &&
 		can_advance_line
 	):
 		text_box.queue_free()
-		
 		current_line_index += 1
 		if current_line_index >= dialog_lines.size():
 			is_dialog_active = false

@@ -4,14 +4,15 @@ extends CharacterBody3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var roar_timer: Timer = $RoarTimer
 @onready var roar_player: AudioStreamPlayer3D = $RoarPlayer
+@onready var interaction_arrow: Node3D = $interaction_arrow
 
 var evil: bool = false
+var talkable: bool = false
 
 signal target_reached()
 
 @export_category("Slime Properties")
-@export var slime_speed: float = 3.0
-@export var scale_speed: float = 0.05
+@export var slime_speed: float = 5.0
 
 func set_next_nav_target(target_pos: Vector3) -> void:
 	if position.distance_to(target_pos) >= 1:
@@ -21,7 +22,8 @@ func get_player_attention(player_pos: Vector3) -> void:
 	navigation_agent_3d.set_target_position(player_pos)
 	navigation_agent_3d.set_target_position(navigation_agent_3d.get_next_path_position())
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# roar when close to player
 	if (
 		evil 
 		and navigation_agent_3d.get_final_position().distance_to(position) < 5 
@@ -48,3 +50,11 @@ func turn_evil() -> void:
 	animation_player.play("turn_evil")
 	await  animation_player.animation_finished
 	evil = true
+
+func show_able_to_talk() -> void:
+	interaction_arrow.show()
+	talkable = true
+
+func hide_able_to_talk() -> void:
+	interaction_arrow.hide()
+	talkable = false

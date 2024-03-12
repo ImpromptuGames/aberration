@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxubrsqpm2thk"]
+
+[ext_resource type="Texture2D" uid="uid://c3m8qsmyp2ets" path="res://textures/game_over.png" id="1_s1gsd"]
+[ext_resource type="Script" path="res://scenes/ui/menus/game_over_menu.gd" id="1_vw7a6"]
+[ext_resource type="FontFile" uid="uid://br7qkil0f1aej" path="res://kenney/Kenney Pixel.ttf" id="2_l56hs"]
+[ext_resource type="Theme" uid="uid://b65h4n0vopjs0" path="res://scenes/ui/main_theme.tres" id="3_pyim5"]
+[ext_resource type="AudioStream" uid="uid://bn8pxbw5y2io8" path="res://other-assets/gameover.wav" id="5_cyj0g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3s007"]
+font = ExtResource("2_l56hs")
+font_size = 58
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vw7a6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s1gsd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_3s007")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_pyim5")
+text = "retry?"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cyj0g")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
