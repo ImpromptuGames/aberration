@@ -1,4 +1,8 @@
-# WIP CREDITS:
+# Rhubarb Garden:
+
+a glorified walking sim for the Acerola Jam 0.
+
+The theme for the jam was aberration so I tried to create a game that switches up half way through.  Another definition of aberration is "wandering off the beaten path" so I was inspired to create a game focused on a confusing path.
 
 ASSETS:
 
