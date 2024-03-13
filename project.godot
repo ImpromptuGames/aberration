@@ -13,7 +13,6 @@ config_version=5
 config/name="aberration"
 run/main_scene="res://scenes/ui/menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.png"
 
 [autoload]
 
