@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckh2bux7fvtnh"]
-
-[ext_resource type="PackedScene" uid="uid://crso415j68xhm" path="res://models/world.blend" id="1_qma42"]
-
-[node name="Path" instance=ExtResource("1_qma42")]

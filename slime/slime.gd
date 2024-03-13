@@ -25,11 +25,11 @@ func get_player_attention(player_pos: Vector3) -> void:
 func _process(_delta: float) -> void:
 	# roar when close to player
 	if (
-		evil 
-		and navigation_agent_3d.get_final_position().distance_to(position) < 5 
+		evil
+		and navigation_agent_3d.get_final_position().distance_to(position) > 5 
 		and roar_timer.is_stopped()
 		):
-		roar_player.pitch_scale = randf_range(0.9,1.1)
+		roar_player.pitch_scale = randf_range(0.5,1.0)
 		roar_player.play()
 		roar_timer.start()
 
@@ -49,11 +49,13 @@ func turn_evil() -> void:
 	animation_player.stop()
 	animation_player.play("turn_evil")
 	await  animation_player.animation_finished
+	animation_player.play("walking")
 	evil = true
 
 func show_able_to_talk() -> void:
-	interaction_arrow.show()
-	talkable = true
+	if not evil:
+		interaction_arrow.show()
+		talkable = true
 
 func hide_able_to_talk() -> void:
 	interaction_arrow.hide()

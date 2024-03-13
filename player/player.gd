@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity_y -= gravity * delta
 		velocity.y = velocity_y
-	move_and_slide()
+		move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion: # and not locked: <- optional camera lock

@@ -26,9 +26,9 @@ extends Node3D
 
 # town
 const lines_0: Array[String] = [
-	"Have you finished your slice of pie?",
+	"Wow you finished that slice fast!",
 	"I know you always love my rhubarb pie haha!",
-	"well, it's such a nice day out",
+	"Well, it's such a nice day out",
 	"why don't we go for a walk?"
 ]
 # start
@@ -46,7 +46,8 @@ const lines_2: Array[String] = [
 ]
 #garden
 const lines_3: Array[String] = [
-	"Okay here we are, this is my happy place",
+	"Okay here we are, this is my happy place.",
+	"This is where I grow all the rhubarb you've eaten.",
 	"Remember the 1st month we met?",
 	"When I invited you over for dinner?",
 	"I cooked you a rhubarb pie for the first time.",
@@ -85,7 +86,7 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if stage == 4 and chase_timer.is_stopped():
 		slime.set_next_nav_target(player.position)
-		if slime.position.distance_to(player.position) < 1.5:
+		if slime.position.distance_to(player.position) < 1.2:
 			get_tree().change_scene_to_file("res://scenes/ui/menus/game_over_menu.tscn")
 
 func _on_slime_target_reached() -> void:
@@ -121,7 +122,6 @@ func _handle_dialog_finished() -> void:
 		2:
 			slime.set_next_nav_target(garden.position)
 		3:
-			slime.slime_speed = 3.0
 			chase_timer.start(3)
 			animation_player.stop()
 			animation_player.play("enviro_to_spooky")
