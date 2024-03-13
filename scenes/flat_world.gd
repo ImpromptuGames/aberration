@@ -86,7 +86,7 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if stage == 4 and chase_timer.is_stopped():
 		slime.set_next_nav_target(player.position)
-		if slime.position.distance_to(player.position) < 1.2:
+		if slime.position.distance_to(player.position) < 1.5:
 			get_tree().change_scene_to_file("res://scenes/ui/menus/game_over_menu.tscn")
 
 func _on_slime_target_reached() -> void:
